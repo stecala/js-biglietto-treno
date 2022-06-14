@@ -9,24 +9,30 @@
 // L'output del prezzo finale andrà mostrato in forma umana in console (con massimo due decimali, per indicare centesimi sul prezzo). Questo richiederà un minimo di ricerca.
 // :catrainbowyes: Buon lavoro a tutte e a tutti! :catrainbowyes:
 
+
+//creo costanti 
 const userKm = parseInt( prompt('Inserisci quanti km vuoi percorrere'));
 const userAge = parseInt ( prompt('Inserisci la tua età'));
+// faccio controllo sui dati ricevuti
 if((isNaN(userKm) == true ) || (isNaN(userAge) == true) || (userAge <= 0) || (userKm <=0)){
-    document.getElementById('wrong').innerHTML='Devi inserire solo dei numeri maggiori di zero';
+    document.getElementById('wrong').innerHTML='Devi inserire solo dei numeri e devono essere maggiori di zero';
 }
 else{
+    // calcolo prezzo del biglietto
     const userPrice = userKm * 0.21;
     console.log(userPrice + ' Non guardare non c\'è niente da vedere qui');
+    // applico eventuali sconti
     if(userAge <= 18){
         let priceDiscounted = (userPrice - ((userPrice * 20) / 100)).toFixed(2);
-        document.getElementById('price').innerHTML='il prezzo per te che sei minorenne è ' + priceDiscounted;
+        document.getElementById('price').innerHTML=' <i class="fa-solid fa-train"></i> Il prezzo per te che sei minorenne è ' + priceDiscounted + '€';
     }
     else if(userAge >= 65)
     {
         let priceDiscounted = (userPrice - ((userPrice * 40) / 100)).toFixed(2);
-        document.getElementById('price').innerHTML='il prezzo per te che sei over 65 è ' + priceDiscounted;
+        document.getElementById('price').innerHTML='<i class="fa-solid fa-train"></i> Il prezzo per te che sei over 65 è ' + priceDiscounted + '€';
     }
+    // prezzo senza agevolazioni
     else{
-        document.getElementById('price').innerHTML='il prezzo per te è ' + userPrice;
+        document.getElementById('price').innerHTML=' <i class="fa-solid fa-train"></i> Il prezzo per te è ' + userPrice + '€';
     }
 }
