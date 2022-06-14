@@ -19,7 +19,7 @@ if((isNaN(userKm) == true ) || (isNaN(userAge) == true) || (userAge <= 0) || (us
 }
 else{
     // calcolo prezzo del biglietto
-    const userPrice = userKm * 0.21;
+    const userPrice = (userKm * 0.21).toFixed(2);
     console.log(userPrice + ' Non guardare non c\'è niente da vedere qui');
     // applico eventuali sconti
     if(userAge <= 18){
